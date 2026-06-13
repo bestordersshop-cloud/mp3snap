@@ -30,7 +30,7 @@ export const conversionWorker = new Worker(
       throw error;
     }
   },
-  { connection: redis }
+  { connection: redisConnection }
 );
 
 conversionWorker.on('completed', (job) => {
