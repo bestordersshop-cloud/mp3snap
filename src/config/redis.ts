@@ -1,15 +1,15 @@
-import { Redis } from 'ioredis';
+import Redis from 'ioredis';
 import { config } from './index.js';
 import logger from '../utils/logger.js';
 
-const redisConfig = {
+export const redisConnection = {
   host: config.redis.host,
   port: config.redis.port,
   password: config.redis.password,
-  maxRetriesPerRequest: null,
+  maxRetriesPerRequest: null
 };
 
-export const redis = new Redis(redisConfig);
+export const redis = new Redis(redisConnection);
 
 redis.on('error', (err) => {
   logger.error('Redis connection error:', err);
