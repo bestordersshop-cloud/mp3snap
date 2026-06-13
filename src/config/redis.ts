@@ -9,7 +9,7 @@ export const redisConnection = {
   maxRetriesPerRequest: null
 };
 
-export const redis = new Redis(redisConnection);
+export const redis = new Redis(redisConfig);
 
 redis.on('error', (err) => {
   logger.error('Redis connection error:', err);
